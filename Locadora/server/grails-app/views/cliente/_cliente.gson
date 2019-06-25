@@ -1,0 +1,26 @@
+import br.ufscar.dc.dsw.Cliente
+
+model {
+	Cliente cliente
+}
+
+json {
+     String cpf
+    String nome
+    String telefone
+    String sexo
+    String nascimento
+    Locadora locadora
+	
+	
+	id cliente.id
+    cpf cliente.cpf
+    nome cliente.nome
+    telefone cliente.telefone
+    sexo cliente.sexo
+	nascimento cliente.nascimento
+    locadora {
+        id cliente.locadora.id
+        nome cliente.locadora.nome
+    }
+}
