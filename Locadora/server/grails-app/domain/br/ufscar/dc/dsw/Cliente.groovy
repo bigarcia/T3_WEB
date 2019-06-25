@@ -3,7 +3,7 @@ package br.ufscar.dc.dsw
 import grails.rest.Resource
 
 @Resource(uri='/livros', readOnly = false, formats = ['json', 'xml'])
-class Livro {
+class Classe{
 
     static constraints = {
          cpf blank: false
