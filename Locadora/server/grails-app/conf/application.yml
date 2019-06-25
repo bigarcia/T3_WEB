@@ -1,7 +1,7 @@
 ---
 server:
-    contextPath: '/LivrosRS'
-        
+    contextPath: '/Locadora'
+
 grails:
     profile: rest-api
     codegen:
