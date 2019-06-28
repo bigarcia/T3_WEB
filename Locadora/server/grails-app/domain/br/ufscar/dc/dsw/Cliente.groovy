@@ -3,7 +3,7 @@ package br.ufscar.dc.dsw
 import grails.rest.Resource
 
 @Resource(uri='/clientes', readOnly = false, formats = ['json', 'xml'])
-class Classe{
+class Cliente{
 
     static constraints = {
          cpf blank: false
@@ -11,7 +11,7 @@ class Classe{
          telefone blank: false
          sexo blank: false
          nascimento blank: false
-         Locadora nullable: false
+         locadora nullable: false
     }
 
     String cpf
