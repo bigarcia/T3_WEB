@@ -1,1 +1,52 @@
-<p>cliente-edicao works!</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" (click)="clienteDetalhes()"><mat-icon>info</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="clienteForm" (ngSubmit)="onFormSubmit(clienteForm.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Título" formControlName="titulo"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('titulo').valid && clienteForm.get('titulo').touched">Por favor entre com o Título</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Autor" formControlName="autor"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('autor').valid && clienteForm.get('autor').touched">Por favor entre com o Autor</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Ano" type="number" formControlName="ano" min=1950
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('ano').valid && clienteForm.get('ano').touched">Por favor entre com o Ano</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Preço" type="number" formControlName="preco"  min=0.01
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('preco').valid && clienteForm.get('preco').touched">Por favor entre com o Preço</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Locadora</mat-label>
+            <mat-select formControlName="locadora" [(value)]="selected.id">
+                <mat-option *ngFor="let locadora of locadoras" [value]="locadora.id">
+                  {{locadora.nome}}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+        <div class="button-row">
+     <button type="submit" [disabled]="!clienteForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

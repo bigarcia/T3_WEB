@@ -1,1 +1,35 @@
-<p>cliente-detalhes works!</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/clientes']">
+        <mat-icon>list</mat-icon>
+      </a>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{cliente.titulo}}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>{{cliente.nome}}</mat-card-subtitle>
+        <mat-card-subtitle>{{cliente.locadora.nome}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <dl>
+          <dt>CPF:</dt>
+          <dd>{{cliente.cpf}}</dd>
+          <dt>Telefone:</dt>
+          <dd>{{cliente.telefone}}</dd>
+        </dl>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button color="primary" [routerLink]="['/cliente-edicao', cliente.id]">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-flat-button color="warn" (click)="deleteCliente(cliente.id)">
+          <mat-icon>delete</mat-icon>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>

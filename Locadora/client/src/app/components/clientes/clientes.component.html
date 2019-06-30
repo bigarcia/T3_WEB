@@ -1,1 +1,51 @@
-<p>clientes works!</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/cliente-cadastro']"><mat-icon>add</mat-icon></a>
+    </div>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="clientes" class="example-table"
+             matSort matSortActive="titulo" matSortDisableClear matSortDirection="asc">
+        <!-- Coluna Email -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let row">{{row.email_cliente}}</td>
+        </ng-container>
+        <!-- Coluna Senha -->
+        <ng-container matColumnDef="senha">
+            <th mat-header-cell *matHeaderCellDef>Senha</th>
+            <td mat-cell *matCellDef="let row">{{row.senha_cliente}}</td>
+        </ng-container>
+        <!-- Coluna CPF -->
+        <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef>Cpf</th>
+            <td mat-cell *matCellDef="let row">{{row.cpf_cliente}}</td>
+        </ng-container>
+        <!-- Coluna Nome -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let row">{{row.nome_cliente}}</td>
+        </ng-container>
+        <!-- Coluna Telefone -->
+        <ng-container matColumnDef="telefone">
+          <th mat-header-cell *matHeaderCellDef>Telefone</th>
+          <td mat-cell *matCellDef="let row">R$ {{row.telefone_cliente}}</td>
+        </ng-container>
+        <!-- Coluna Sexo -->
+        <ng-container matColumnDef="sexo">
+            <th mat-header-cell *matHeaderCellDef>Sexo</th>
+            <td mat-cell *matCellDef="let row">R$ {{row.sexo_cliente}}</td>
+          </ng-container>
+        <!-- Coluna Data de Nascimento -->
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>Data de Nascimento</th>
+          <td mat-cell *matCellDef="let row">{{row.data_cliente}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/locadora-detalhes/', row.id]"></tr>
+      </table>
+    </div>
+  </div>

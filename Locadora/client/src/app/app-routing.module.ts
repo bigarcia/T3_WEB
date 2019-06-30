@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClientesComponent } from './components/clientes/cliente.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
 import { ClienteCadastroComponent } from './components/cliente-cadastro/cliente-cadastro.component';
 import { ClienteDetalhesComponent } from './components/cliente-detalhes/cliente-detalhes.component';
 import { ClienteEdicaoComponent } from './components/cliente-edicao/cliente-edicao.component';
