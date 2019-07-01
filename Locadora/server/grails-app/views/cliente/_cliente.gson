@@ -5,14 +5,15 @@ model {
 }
 
 json {
-	id cliente.id
-    cpf cliente.cpf
-    nome cliente.nome
-    telefone cliente.telefone
-    sexo cliente.sexo
-	nascimento cliente.nascimento
-    locadora {
+	id_cliente cliente.id
+    cpf_cliente cliente.cpf
+    nome_cliente cliente.nome
+    telefone_cliente cliente.telefone
+    sexo_cliente cliente.sexo
+	nascimento_cliente cliente.nascimento
+    
+    /*locadora {
         id cliente.locadora.id
         nome cliente.locadora.nome
-    }
+    }*/
 }

@@ -6,18 +6,21 @@ import grails.rest.Resource
 class Cliente{
 
     static constraints = {
-         cpf blank: false
-         nome blank: false
-         telefone blank: false
-         sexo blank: false
-         nascimento blank: false
-         locadora nullable: false
+        email_cliente blank: false
+        senha_cliente blank: false
+        cpf_cliente blank: false
+        nome_cliente blank: false
+        telefone_cliente blank: false
+        sexo_cliente blank: false
+        nascimento_cliente blank: false
+         //locadora nullable: false
     }
 
-    String cpf
-    String nome
-    String telefone
-    String sexo
-    String nascimento
-    Locadora locadora
+    String email_cliente
+    String senha_cliente
+    String cpf_cliente
+    String nome_cliente
+    String telefone_cliente
+    String sexo_cliente
+    String nascimento_cliente
 }
