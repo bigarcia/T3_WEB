@@ -11,9 +11,4 @@ json {
     telefone_cliente cliente.telefone
     sexo_cliente cliente.sexo
 	nascimento_cliente cliente.nascimento
-    
-    /*locadora {
-        id cliente.locadora.id
-        nome cliente.locadora.nome
-    }*/
 }
