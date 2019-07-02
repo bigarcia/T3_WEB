@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   getClientes (): Observable<Cliente[]> {
-    const url = `${apiUrl}/cliente`;
+    const url = `${apiUrl}/clientes`;
     return this.http.get<Cliente[]>(url)
       .pipe(
         tap(heroes => console.log('getClientes')),

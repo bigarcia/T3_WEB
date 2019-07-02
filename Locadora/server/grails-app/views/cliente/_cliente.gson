@@ -6,14 +6,11 @@ model {
 
 json {
 	id_cliente cliente.id
+    email_cliente cliente.username
     cpf_cliente cliente.cpf
     nome_cliente cliente.nome
     telefone_cliente cliente.telefone
     sexo_cliente cliente.sexo
-	nascimento_cliente cliente.nascimento
-    
-    /*locadora {
-        id cliente.locadora.id
-        nome cliente.locadora.nome
-    }*/
+	data_cliente cliente.data
+
 }

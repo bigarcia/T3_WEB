@@ -8,7 +8,7 @@ import { Cliente } from '../../models/cliente';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-  displayedColumns: string[] = ['id_cliente','email_cliente','senha_cliente','cpf_cliente','nome_cliente','telefone_cliente','sexo_cliente','data_cliente'];
+  displayedColumns: string[] = ['id_cliente','email_cliente','cpf_cliente','nome_cliente','telefone_cliente','sexo_cliente','data_cliente'];
   clientes: Cliente[] = [];
   isLoadingResults = true;
 
@@ -19,6 +19,7 @@ export class ClientesComponent implements OnInit {
   }
   async getData() {
     this.clientes = await this.api.getClientes().toPromise();
+    console.log(this.clientes);
     this.isLoadingResults = false;
     console.debug('No issues, I will wait until promise is resolved..');
   }

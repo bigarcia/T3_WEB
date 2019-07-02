@@ -3,11 +3,9 @@ package br.ufscar.dc.dsw
 import grails.rest.Resource
 
 @Resource(uri='/clientes', readOnly = false, formats = ['json', 'xml'])
-class Cliente{
+class Cliente extends User{
 
     static constraints = {
-        email_cliente blank: false
-        senha_cliente blank: false
         cpf_cliente blank: false
         nome_cliente blank: false
         telefone_cliente blank: false
@@ -16,8 +14,6 @@ class Cliente{
          //locadora nullable: false
     }
 
-    String email_cliente
-    String senha_cliente
     String cpf_cliente
     String nome_cliente
     String telefone_cliente
