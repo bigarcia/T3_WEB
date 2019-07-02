@@ -12,5 +12,4 @@ json {
     telefone_cliente cliente.telefone
     sexo_cliente cliente.sexo
 	data_cliente cliente.data
-
 }
