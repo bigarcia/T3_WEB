@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { Locadora } from '../../models/locadora';
+//import { Locadora } from '../../models/locadora';
 import { Cliente } from 'src/app/models/cliente';
 
 @Component({
@@ -12,24 +12,24 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class ClienteEdicaoComponent implements OnInit {
   clienteForm: FormGroup;
-  id_cliente: string = '';
-  selected: Locadora = null;
-  locadoras: Locadora[];
+  id: string = '';
+  //selected: Locadora = null;
+  //locadora: Locadora[];
   isLoadingResults = true;
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
-  async getData(id_cliente) {
-    this.locadoras = await this.api.getLocadoras().toPromise();
-    let cliente: Cliente = await this.api.getCliente(id_cliente).toPromise();
-    this.id_cliente = cliente.id_cliente;
+  async getData(id) {
+    //this.locadora = await this.api.getLocadora().toPromise();
+    let cliente: Cliente = await this.api.getCliente(id).toPromise();
+    this.id = cliente.id;
     this.clienteForm.setValue({
-      email: cliente.email_cliente,
-      senha: cliente.senha_cliente,
-      cpf: cliente.cpf_cliente,
-      nome: cliente.nome_cliente,
-      telefone: cliente.telefone_cliente,
-      sexo: cliente.sexo_cliente,
-      data: cliente.data_cliente
+      email: cliente.email,
+      senha: cliente.senha,
+      cpf: cliente.cpf,
+      nome: cliente.nome,
+      telefone: cliente.telefone,
+      sexo: cliente.sexo,
+      data: cliente.data
     });
     this.isLoadingResults = false;
     console.debug('No issues, I will wait until promise is resolved..');
@@ -38,13 +38,13 @@ export class ClienteEdicaoComponent implements OnInit {
   ngOnInit() {
     this.isLoadingResults = true;
     this.clienteForm = this.formBuilder.group({
-      email_cliente: [null, Validators.required],
-      senha_cliente: [null, Validators.required],
-      cpf_cliente: [1950, Validators.required],
-      nome_cliente: [null, Validators.required],
-      telefone_cliente: [0.01, Validators.required],
-      sexo_cliente: [null, Validators.required],
-      data_cliente: [null, Validators.required],
+      email: [null, Validators.required],
+      senha: [null, Validators.required],
+      cpf: [null, Validators.required],
+      nome: [null, Validators.required],
+      telefone: [0.01, Validators.required],
+      sexo: [null, Validators.required],
+      data: [null, Validators.required],
       locadora: [null, Validators.required]
     });
     this.getData(this.route.snapshot.params['id']);
@@ -52,11 +52,11 @@ export class ClienteEdicaoComponent implements OnInit {
 
   onFormSubmit(form:NgForm) {
     this.isLoadingResults = true;
-    this.api.updateCliente(this.id_cliente, form)
+    this.api.updateCliente(this.id, form)
       .subscribe(res => {
-          let id_cliente = res['id_cliente'];
+          let id = res['id'];
           this.isLoadingResults = false;
-          this.router.navigate(['/cliente-detalhes', id_cliente]);
+          this.router.navigate(['/cliente-detalhes', id]);
         }, (err) => {
           console.log(err);
           this.isLoadingResults = false;
@@ -65,6 +65,6 @@ export class ClienteEdicaoComponent implements OnInit {
   }
 
   clienteDetalhes() {
-    this.router.navigate(['/cliente-detalhes', this.id_cliente]);
+    this.router.navigate(['/cliente-detalhes', this.id]);
   }
 }

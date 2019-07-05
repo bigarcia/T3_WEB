@@ -1,10 +1,12 @@
-export class Cliente {
-    id_cliente: string;
-    email_cliente: string;
-    senha_cliente: string;  
-    cpf_cliente: string;
-    nome_cliente: string;
-    telefone_cliente: string;
-    sexo_cliente: string;
-    data_cliente: string;
+//import { User } from './user';
+//export class Cliente extends User
+export class Cliente{
+    id: string;
+    email: string;
+    senha: string;  
+    cpf: string;
+    nome: string;
+    telefone: string;
+    sexo: string;
+    data: string;
 }

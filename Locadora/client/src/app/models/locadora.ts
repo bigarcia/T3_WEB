@@ -1,7 +1,10 @@
-export class Locadora {
-    email_locadora: string;
-    senha_locadora: string;
-    cnpj_locadora: string;
-    nome_locadora: string;
-    cidade_locadora: string;
+//import { User } from './user';
+//export class Locadora extends User
+export class Locadora{
+    id: string;
+    email: string;
+    senha: string;
+    cnpj: string;
+    nome: string;
+    cidade: string;
 }

@@ -9,18 +9,26 @@
     </div>
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>
+        <!--<mat-card-title>
           <h2>{{cliente.titulo}}</h2>
+        </mat-card-title>-->
+        <mat-card-title>
+          <h2>{{cliente.nome}}</h2>
+          <h2>{{cliente.id}}</h2>
         </mat-card-title>
-        <mat-card-subtitle>{{cliente.nome}}</mat-card-subtitle>
-        <mat-card-subtitle>{{cliente.locadora.nome}}</mat-card-subtitle>
-      </mat-card-header>
+       <!-- <mat-card-subtitle>{{cliente.nome}}</mat-card-subtitle>-->
+       <!-- <mat-card-subtitle>{{cliente.locadora.nome}}</mat-card-subtitle>
+      </mat-card-header>-->
       <mat-card-content>
         <dl>
           <dt>CPF:</dt>
           <dd>{{cliente.cpf}}</dd>
           <dt>Telefone:</dt>
           <dd>{{cliente.telefone}}</dd>
+          <dt>SEXO:</dt>
+          <dd>{{cliente.sexo}}</dd>  
+          <dt>DATA DE NASCIMENTO:</dt>
+          <dd>{{cliente.data}}</dd>  
         </dl>
       </mat-card-content>
       <mat-card-actions>

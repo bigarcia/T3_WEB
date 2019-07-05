@@ -2,39 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Locadora } from '../../models/locadora';
-import { Cliente } from '../../models/cliente';
+
 
 @Component({
-  selector: 'app-cliente-detalhes',
-  templateUrl: './cliente-detalhes.component.html',
-  styleUrls: ['./cliente-detalhes.component.css']
+  selector: 'app-locadora-detalhes',
+  templateUrl: './locadora-detalhes.component.html',
+  styleUrls: ['./locadora-detalhes.component.css']
 })
-export class ClienteDetalhesComponent implements OnInit {
-  cliente: Cliente = { id: '', email: '', senha: '', cpf: '', nome: '', telefone: '', sexo: '', data: '' };
+export class LocadoraDetalhesComponent implements OnInit {
+  locadora: Locadora = { id: '', email: '', senha: '', cnpj: '', nome: '', cidade: ''};
   isLoadingResults = true;
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
-  async getData(id) {
-    this.cliente = await this.api.getCliente(id).toPromise();
-    this.isLoadingResults = false;
-    console.debug('No issues, I will wait until promise is resolved..');
-  }
+  
   ngOnInit() {
     this.getData(this.route.snapshot.params['id']);
   }
 
-  deleteCliente(id) {
+  async getData(id) {
+    this.locadora = await this.api.getLocadora(id).toPromise();
+    this.isLoadingResults = false;
+    console.debug('No issues, I will wait until promise is resolved..');
+  }
+
+  deleteLocadora(id) {
     this.isLoadingResults = true;
-    this.api.deleteCliente(id)
+    this.api.deleteLocadora(id)
       .subscribe(res => {
           this.isLoadingResults = false;
-          this.router.navigate(['/clientes']);
+          this.router.navigate(['/locadoras']);
         }, (err) => {
           console.log(err);
           this.isLoadingResults = false;
         }
       );
   }
+
 
 }
