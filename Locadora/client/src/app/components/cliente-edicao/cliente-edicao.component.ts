@@ -40,9 +40,9 @@ export class ClienteEdicaoComponent implements OnInit {
     this.clienteForm = this.formBuilder.group({
       email: [null, Validators.required],
       senha: [null, Validators.required],
-      cpf: [1950, Validators.required],
+      cpf: [null, Validators.required],
       nome: [null, Validators.required],
-      telefone: [0.01, Validators.required],
+      telefone: [null, Validators.required],
       sexo: [null, Validators.required],
       data: [null, Validators.required],
       locadora: [null, Validators.required]

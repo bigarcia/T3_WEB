@@ -9,16 +9,28 @@
     </div>
     <mat-card class="example-card">
       <form [formGroup]="clienteForm" (ngSubmit)="onFormSubmit(clienteForm.value)">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="CPF" formControlName="cpf_client" [errorStateMatcher]="matcher">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="E-mail" formControlName="email" [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!clienteForm.get('cpf_client').valid && livroForm.get('cpf_client').touched">Por favor insira o CPF</span>
+            <span *ngIf="!clienteForm.get('email').valid && livroForm.get('email').touched">Por favor insira o E-mail</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nome" formControlName="nome_client" [errorStateMatcher]="matcher">
+          <input matInput placeholder="Senha" formControlName="senha" [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!clienteForm.get('nome').valid && clienteForm.get('nome_client').touched">Por favor insira o nome</span>
+            <span *ngIf="!clienteForm.get('senha').valid && livroForm.get('senha').touched">Por favor insira a senha</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="CPF" formControlName="cpf" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('cpf').valid && livroForm.get('cpf').touched">Por favor insira o CPF</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('nome').valid && clienteForm.get('nome').touched">Por favor insira o nome</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">

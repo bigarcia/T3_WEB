@@ -8,7 +8,7 @@ import { Cliente } from '../../models/cliente';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-  displayedColumns: string[] = ['id','email','cpf','nome','telefone','sexo','data'];
+  displayedColumns: string[] = ['id','email','senha','cpf','nome','telefone','sexo','data'];
   clientes: Cliente[] = [];
   isLoadingResults = true;
 
