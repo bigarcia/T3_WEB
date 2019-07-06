@@ -13,13 +13,10 @@ import { Cliente } from 'src/app/models/cliente';
 export class ClienteEdicaoComponent implements OnInit {
   clienteForm: FormGroup;
   id: string = '';
-  selected: Locadora = null;
-  locadoras: Locadora[];
   isLoadingResults = true;
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
   async getData(id) {
-    this.locadoras = await this.api.getLocadoras().toPromise();
     let cliente: Cliente = await this.api.getCliente(id).toPromise();
     this.id = cliente.id;
     this.clienteForm.setValue({

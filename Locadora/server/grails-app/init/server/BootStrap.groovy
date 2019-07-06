@@ -46,9 +46,7 @@ class BootStrap {
         println " "
 
         Cliente cliente1 = new Cliente (email: 'cliente1@gmail.com', senha:'123', 
-										cpf: '11111111111', nome: 'Cliente 1', 
-                                        telefone: '(11)111111111',
-                                        sexo: 'f', data: '11/11/1111')
+										cpf: '11111111111', nome: 'Cliente 1')
         cliente1.save()
 
         if (cliente1.hasErrors()) {
@@ -75,8 +73,7 @@ class BootStrap {
         println " "
 
         Cliente cliente2 = new Cliente (email: 'cliente2@gmail.com', senha:'122', 
-										cpf: '22222222222', nome: 'Cliente 2', telefone: '(22)22222222',
-										sexo: 'm', data: '22/22/2222')
+										cpf: '22222222222', nome: 'Cliente 2')
         cliente2.save()
         if (cliente2.hasErrors()) {
             println "Cadastro de Cliente2 com erros"
@@ -100,8 +97,7 @@ class BootStrap {
         println " "
 
         Cliente cliente3 = new Cliente (email: 'cliente3@gmail.com', senha:'132', 
-										cpf: '33333333333', nome: 'Cliente 3', telefone: '(33)333333333',
-										sexo: 'm', data: '33/33/3333')
+										cpf: '33333333333', nome: 'Cliente 3')
         cliente3.save()
 
         if (cliente3.hasErrors()) {
